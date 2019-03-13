@@ -11,6 +11,10 @@ class OwnersController < ApplicationController
   end
 
   post '/owners' do
+    if !params[:owner].keys.include?("pet_ids")
+    params[:owner]["pet_ids"] = []
+    end
+    
     @owner = Owner.create(params[:owner])
     if !params["pet"]["name"].empty?
       @owner.pets << Pet.create(name: params["pet"]["name"])
