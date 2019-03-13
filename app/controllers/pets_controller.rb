@@ -1,6 +1,6 @@
 class PetsController < ApplicationController
 
-  get '/pets' do
+   get '/pets' do
     @pets = Pet.all
     erb :'/pets/index'
   end
